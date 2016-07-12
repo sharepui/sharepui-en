@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<! share.html provides the user the interface to fill the information about the recipe into the database. share.html is linked to share_success.php in order to send the information filled by the user into the databases but share.html itselt does not insert the information directly into the databases. The forms include recipe name, plant name, goals, fertilizer type, weather, timeframe, difficulty level, soil type, instruction and overview. >
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Share</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/landing-page.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/addInput.js" language="Javascript" type="text/javascript"></script>
+  <script src="js/addStep.js" language="Javascript" type="text/javascript"></script>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+      </head>
+
+
+      <body>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+          <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand topnav" href="#">Ban Suan Pim</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                 <li>
+                        <a href="index.html#about">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="index.html#howto">HOW TO</a>
+                    </li>
+                    <li>
+                        <a href="index.html#myfarm">MY FARM</a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact">CONTACT</a>
+                    </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container -->
+        </nav>
+
+
+        <!-- Header -->
+        <a name="about"></a>
+        <div class="intro-header">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="intro-message">
+                  <h1>Share</h1>
+                  <h3>Contribute your recipe to the farming community</h3>
+                  <hr class="intro-divider">
+                  <ul class="list-inline intro-social-buttons">
+                    <li>
+                      <a href="index.html" class="btn btn-default btn-lg"> <span class="network-name">About</span></a>
+                    </li>
+                    <li>
+                      <a href="share.html" class="btn btn-default btn-lg"><span class="network-name">Share</span></a>
+                    </li>
+                    <li>
+                      <a href="search.html" class="btn btn-default btn-lg"><span class="network-name">Search</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /.container -->
+
+        </div>
+        <!-- /.intro-header -->
+
+        <!-- Page Content -->
+
+        <a  name="services"></a>
+        <div class="content-section-a">
+
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Share your recipe here</h2>
+
+
+                <form class="form-horizontal" id="share" role="form" action="share_success.php" method="POST">
+
+
+                  <!-- Recipe name -->
+                  
+                  <div class="form-group">
+                  <label for="recipe_name">Recipe name</label>
+                  <input name="recipe_name" type="text" class="form-control" id="recipe_name" placeholder="e.g. Organic Durian Fertilizer">
+                  </div class="form-group"
+
+                  <!-- Plant name -->
+                  <div class="form-group">
+                   <label>Plant name</label>
+                   <select name="plant_id" class="form-control" id="plant_id">
+                    <option value="1">Durian</option>
+                    <option value="2">Strawberries</option>
+                    <option value="3">Papaya</option>
+                    <option value="4">Mango</option>
+                    <option value="0">Any</option>
+                  </select>
+                </div>
+                <!-- Plant name -->
+                
+
+                  <!--------------- Goals---------------->
+                 <fieldset class="form-group">
+                  <label>What is your recipe good for?</label>
+                  </fieldset class="form-group">
+
+                  <div class="checkbox">
+                    <!---N---->
+                    <fieldset class="form-group">
+                    <label><b>N</b></label><br>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="1">
+                      Promotes rapid growth
+                    </label>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="2">
+                      Aids chlorophyll formation
+                    </label>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="3">
+                      Aids protein synthesis
+                    </label>
+                    </fieldset class="form-group">
+                    <!---N---->
+
+                    <!---P---->
+                    <fieldset class="form-group">
+                    <label><b>P</b></label><br>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="4">
+                      Stimulates early root growth
+                    </label>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="5">
+                      Hastens maturity
+                    </label>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="6">
+                      Stimulates blooming
+                    </label>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="7">
+                      Aids seed formation
+                    </label><br>
+                    </fieldset class="form-group">
+                    <!---P---->
+
+                    <!---K---->
+                    <fieldset class="form-group">
+                    <label><b>K</b></label><br>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="8">
+                      Increases resistance to drought and disease
+                    </label>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="9">
+                      Increases stalk and straw strength
+                    </label>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="10">
+                      Increases quality of grain and seed
+                    </label>
+                    </fieldset class="form-group">
+                    <!---K---->
+
+                    <!---Else---->
+                    <fieldset class="form-group">
+                    <label><b>Else</b></label><br>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="11">
+                      Bugs
+                    </label>
+                    <label>
+                      <input name="goals[]" type="checkbox" value="12">
+                      Quality of soil
+                    </label>
+                    </fieldset class="form-group">
+                </div class="checkbox">
+                  <!--------------- Goals---------------->
+
+                <!-- Organic or non-organic -->
+                <fieldset class="form-group">
+                  <label>Type</label>
+                  <select name="type" class="form-control">
+                    <option value="1">Organic</option>
+                    <option value="2">Mixed</option>
+
+                  </select>
+                </fieldset>
+                <!-- Organice or non-organic -->
+
+
+                <!-- Weather -->
+                <fieldset class="form-group">
+                  <label>In what weather is your recipe good for?</label>
+                  <div class="checkbox">
+                    <label>
+                      <input name="weather[]" type="checkbox" value="1">
+                      Hot 
+                    </label>
+                    <label>
+                      <input name="weather[]" type="checkbox" value="2">
+                      Cold
+                    </label>
+                    <label>
+                      <input name="weather[]" type="checkbox" value="3">
+                      Rainy
+                    </label>
+                    <label>
+                      <input name="weather[]" type="checkbox" value="4">
+                      Humid
+                    </label>
+                    <label>
+                      <input name="weather[]" type="checkbox" value="5">
+                      Dry
+                    </label>
+
+                  </fieldset>
+                  <!-- Weather -->
+
+                  <!--------------------- Timeframe ---------------------->
+                  <fieldset class="form-group">
+                    <label>How long does it take?</label>
+                    <div class="form-inline">
+
+                      <!-- Period -->
+                      <select name="timeperiod" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                      </select>
+
+                      <!-- time unit -->
+                      <select name="time_unit" class="form-control">
+                        <option value="1">day(s)</option>
+                        <option value="2">week(s)</option>
+                        <option value="3">month(s)</option>
+                        <option value="4">year(s)</option>
+                      </select>
+                    </div>
+                  </fieldset>
+                  <!-- time unit -->
+
+                  <!--------------------- Timeframe ----------------------->
+
+                  <!-- Level -->
+                  <fieldset class="form-group">
+                    <label>Difficulty level</label>
+                    <select name="level" class="form-control">
+                      <option value="1">Hard</option>
+                      <option value="2">Intermediate</option>
+                      <option value="3">Easy</option>
+                    </select>
+                  </fieldset>
+                  <!-- Level -->
+
+                  <!-- Soil type -->
+                  <div class="form-group">
+                    <label for="exampleSelect1">Soil types</label>
+                    <select name="soil_id" class="form-control" id="exampleSelect1">
+                      <option value="1">Sandy</option>
+                      <option value="2">Silty</option>
+                      <option value="3">Clay</option>
+                      <option value="4">Peaty</option>
+                      <option value="5">Saline</option>
+                    </select>
+                  </div>
+                  <!-- Soil type -->
+
+                  <!-- Ingredients-->
+                  <fieldset class="form-group">
+                  <label>Ingredients</label>
+                </fieldset class="form-group">
+                  <div class="form-inline">
+
+                    <div class="form-group" id="ingredient">
+                      <input name="ingredients[]" type="text" class="form-control" placeholder="First ingredient">
+                    </div class="form-group">
+
+                    <!-- quantity-->
+                    
+                    <div class="form-group" id="quantity">
+                      <input name="quantities[]" type="text" class="form-control" placeholder="Quantity">
+                    </div class="form-group" id="quantity">
+                    <!-- quantity-->
+
+                    <!-- unit -->
+                    <div class="form-group" id="unit">
+                      <select name="units[]" class="form-control" id="unit">
+                        <option value="1">Gram</option>
+                        <option value="2">Kilogram</option>
+                        <option value="3">Liter</option>
+                      </select id="unit">
+                    </div class="form-group" id="unit">
+
+                    <!-- unit -->
+
+                  </div class="form-inline">
+
+                  <fieldset class="form-group">
+                  </fieldset>
+
+                  <div class="form-group">
+                    <!-- button for ingredients -->
+                    <input type="button" class="btn btn-primary"value="Add ingredeint" onClick="addInput('ingredient');addQuantity('quantity');addUnit('unit');">
+                    <!-- button for ingredients -->
+
+                    <!-- Ingredients-->
+
+                    <fieldset class="form-group">
+                    </fieldset>
+
+
+                    <!-- Instruction-->
+
+                    <label>Instruction</label>
+                    <div id="instruction">
+                      <input name="instructions[]" type="text" class="form-control" placeholder="First step">
+                    </div id="dynamicInput" class="form-group">
+
+                    <fieldset class="form-group">
+                    </fieldset>
+
+                    <input type="button" class="btn btn-primary"value="Add another step" onClick="addStep('instruction');">
+                    <!-- Instruction-->
+
+                    <!-- Line-->
+                    <fieldset class="form-group">
+                    </fieldset class="form-group">
+                    <!-- Line-->
+
+
+                    <label for="exampleTextarea">Overview of Your Recipe</label>
+                    <textarea class="form-control" name="overview" id="overview" rows="3"></textarea>
+
+                    <!-- Line-->
+                    <fieldset class="form-group">
+                    </fieldset class="form-group">
+                    <!-- Line-->
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- /.container -->
+            <!-- /.container -->
+          </div>
+          <!-- /.content-section-a -->
+
+          <!-- /.banner -->
+
+          <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-inline">
+                    <li>
+                        <a href="index.html#about">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="index.html#howto">HOW TO</a>
+                    </li>
+                    <li>
+                        <a href="index.html#myfarm">MY FARM</a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact">CONTACT</a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted small">Special thanks to Manoom, Mek, Stephen, Nisa, Parit, my family and my farm for making my first project happen!</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        </body>
+
+        </html>
